@@ -1,0 +1,23 @@
+TEMPLATE = app
+
+QT -= core gui
+
+isEmpty(QT) { # if not ised qt framewok
+    win32-g++*|linux-g++*: \
+        DEFINES += Q_FUNC_INFO=__PRETTY_FUNCTION__  # mingw, gcc
+    win32-msvc*: DEFINES += Q_FUNC_INFO=__FUNCSIG__ # MSVC++ 2010
+}
+
+SOURCES += \
+    main.cpp
+
+win32 {
+    CONFIG += console
+    CONFIG += png zlib
+}
+
+unix:LIBS += -lpng
+
+HEADERS += \
+    pngrwdatamsvccompatible.h \
+    pngsplitterhelper.h
