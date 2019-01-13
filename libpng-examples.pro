@@ -6,4 +6,5 @@ SUBDIRS = \
 OTHER_FILES = \
     README \
     ROADMAP \
+    LICENSE \
     .gitignore
